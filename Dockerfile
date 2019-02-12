@@ -23,7 +23,7 @@ RUN apt-get update -y && \
   # sudo apt install virtualenv
   # apt-get install python-3-venv
 
-RUN virtualenv /appenv && \
+RUN virtualenv /appenv && \ 
     . /appenv/bin/activate && \
     pip3 install pip --upgrade
 
@@ -31,3 +31,5 @@ RUN virtualenv /appenv && \
 ADD scripts/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 ENTRYPOINT [ "entrypoint.sh" ]
+
+LABEL application="todobackend"
